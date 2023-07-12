@@ -19,14 +19,14 @@ public class CalculatorTest {
 	private Calculator calculatorUnderTest;
 
 	@BeforeAll
-	static public void initStartingTime() {
+	public static void initStartingTime() {
 		System.out.println("Appel avant tous les tests");
 		startedAt = Instant.now();
 		System.out.println("Instant started" + startedAt);
 	}
 
 	@AfterAll
-	static public void showTestDuration() {
+	public static  void showTestDuration() {
 		System.out.println("Appel après tous les tests");
 		Instant endedAt = Instant.now();
 		long duration = Duration.between(startedAt, endedAt).toHours();
