@@ -29,7 +29,7 @@ public class CalculatorTest {
 	public static  void showTestDuration() {
 		System.out.println("Appel après tous les tests");
 		Instant endedAt = Instant.now();
-		long duration = Duration.between(startedAt, endedAt).toHours();
+		long duration = Duration.between(startedAt, endedAt).toMillis();
 		System.out.println(MessageFormat.format("Durée des tests : {0} ms", duration));
 	}
 
