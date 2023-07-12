@@ -1,20 +1,53 @@
 package com.openclassrooms.testing;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.text.MessageFormat;
+import java.time.Duration;
+import java.time.Instant;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class CalculatorTest {
+	
+
+    private static Instant startedAt;
+
+    private Calculator calculatorUnderTest;
+    
+    @BeforeEach
+    public void initCalculator() {
+    	System.out.println("Appel avant chaque test");
+    	calculatorUnderTest = new Calculator();
+    }
+    
+	
+	@BeforeAll
+	static public void initStartingTime() {
+		System.out.println("Appel avant tous les tests");
+		startedAt = Instant.now();
+		System.out.println("Instant started" + startedAt);
+	}
+
+	@AfterAll
+	static public void showTestDuration() {
+		System.out.println("Appel après tous les tests");
+		Instant endedAt = Instant.now();
+		long duration = Duration.between(startedAt, endedAt).toHours();
+		System.out.println(MessageFormat.format("Durée des tests : {0} ms", duration));
+	}
 
 	@Test
 	public void testAddTwoPositiveNumbers() {
 		// Arrange
 		int a = 2;
 		int b = 3;
-		Calculator calculator = new Calculator();
-
+	
 		// Act
-		int somme = calculator.add(a, b);
+		int somme = calculatorUnderTest.add(a, b);
 
 		// Assert
 		assertEquals(5, somme);
@@ -25,10 +58,9 @@ public class CalculatorTest {
 		// Arrange
 		int a = 42;
 		int b = 11;
-		Calculator calculator = new Calculator();
-
+		
 		// Act
-		int produit = calculator.multiply(a, b);
+		int produit = calculatorUnderTest.multiply(a, b);
 
 		// Assert
 		assertEquals(462, produit);
