@@ -11,7 +11,12 @@ public class Calculator {
 	}
 
 	public void longCalculation() {
-		// TODO Auto-generated method stub
+		try {
+		    // Attendre 2 secondes
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		
 	}
 	
