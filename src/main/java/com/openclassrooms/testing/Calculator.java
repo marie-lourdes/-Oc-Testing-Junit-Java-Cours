@@ -10,4 +10,10 @@ public class Calculator {
 		return a * b;
 	}
 
+	public void longCalculation() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
 }

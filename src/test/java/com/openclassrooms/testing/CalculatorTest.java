@@ -11,6 +11,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -96,6 +97,18 @@ public class CalculatorTest {
 
 		// Assert
 		assertEquals(expectResult, actualResult);
+	}
+	
+	@Test
+	@Timeout(1)
+	public void longCalcul_shouldComputeInLessThan1Second() {
+		// Arrange
+
+		// Act
+		calculatorUnderTest.longCalculation();
+		
+		// Assert
+		// ...
 	}
 
 }
