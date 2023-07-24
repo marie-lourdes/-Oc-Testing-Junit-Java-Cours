@@ -1,5 +1,6 @@
 package com.openclassrooms.testing;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class Calculator {
@@ -21,8 +22,13 @@ public class Calculator {
 	}
 
 	public Set<Integer> digitsSet(int number) {
-		// TODO Auto-generated method stub
-		return null;
+		final Set<Integer>  integers = new HashSet<Integer>();
+		final  String numberString = String.valueOf(number);
+		for(int i =0; i< numberString.length(); i++) {
+			integers.add(Integer.parseInt(numberString, i,i+1, 10));
+		}
+		return integers;
+		
 	}
 
 }
