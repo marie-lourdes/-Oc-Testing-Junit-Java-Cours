@@ -1,5 +1,7 @@
 package com.openclassrooms.testing;
 
+import java.util.Set;
+
 public class Calculator {
 
 	public int add(int a, int b) {
@@ -16,6 +18,11 @@ public class Calculator {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public Set<Integer> digitsSet(int number) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
